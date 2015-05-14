@@ -1,7 +1,7 @@
 # Site wide configuration
 
-title:            Developer Notes
-locale:           en_US
+title:  Trial & Error
+locale: en_US
 url:
 
 
@@ -33,7 +33,7 @@ owner:
   email: dev_kit@icloud.com
   disqus-shortname:
   twitter: kit_pearson
-  facebook: #username
+  facebook: #https://www.facebook.com/kiTpearsonPhoto
   google:
     plus: #username
     analytics:
@@ -43,7 +43,7 @@ owner:
   bing-verify:
   github: kpearson
   stackoverflow: #http://stackoverflow.com/users/1999148/kit
-  linkedin: #username
+  linkedin: #https://www.linkedin.com/profile/view?id=23091578
   instagram: #username
   lastfm: #username
   tumblr: #username
