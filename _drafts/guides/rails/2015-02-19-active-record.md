@@ -1,3 +1,7 @@
+---
+category: guides
+---
+
 Aral objects
 (Active Recored Relation Object)
 Arel quaries are lazy.  They do not run untill needed.

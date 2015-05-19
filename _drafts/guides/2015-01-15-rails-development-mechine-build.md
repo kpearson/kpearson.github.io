@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Rails Development Machine 
+title: Rails Development Machine
+category: guides
 excerpt: "Walk thru of a Rails development machine on osx."
 tags: [intro, beginner, Rails, Configure, Development]
 ---
@@ -36,7 +37,7 @@ Thats it.
 
 ## Bundler
 ###Removing the need to use "bundle exec" before commands.<br>
-First: confirm the most reasont version of rvm with 
+First: confirm the most reasont version of rvm with
 <pre><code>rvm get head && rvm reload</code></pre>
 then (to change the mode of a particular hook) run:
 <pre>chmod +x $rvm_path/hooks/after_cd_bundler</pre>
@@ -132,11 +133,11 @@ guard 'rspec', :version => 2, :all_after_pass => false do
     ["spec/routing/#{m[1]}_routing_spec.rb",
      "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb",
      "spec/acceptance/#{m[1]}_spec.rb",
-     (m[1][/_pages/] ? "spec/requests/#{m[1]}_spec.rb" : 
+     (m[1][/_pages/] ? "spec/requests/#{m[1]}_spec.rb" :
                        "spec/requests/#{m[1].singularize}_pages_spec.rb")]
   end
   watch(%r{^app/views/(.+)/}) do |m|
-    (m[1][/_pages/] ? "spec/requests/#{m[1]}_spec.rb" : 
+    (m[1][/_pages/] ? "spec/requests/#{m[1]}_spec.rb" :
                        "spec/requests/#{m[1].singularize}_pages_spec.rb")
   end
   .
@@ -226,7 +227,7 @@ require 'rubygems'
 require 'spork'
 
 Spork.prefork do
-  # Loading more in this block will cause your tests to run faster. However, 
+  # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
   # This file is copied to spec/ when you run 'rails generate rspec:install'

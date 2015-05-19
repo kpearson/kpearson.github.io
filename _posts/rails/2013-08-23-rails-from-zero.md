@@ -1,12 +1,13 @@
 ---
 layout: post
-category: post
+category: article
 title: Rails from Zero
 ---
 
 {% include _toc.html %}
 
 *osx 10.10.1   |  Jan 14, 2015*
+
 
 # Up and Running
 

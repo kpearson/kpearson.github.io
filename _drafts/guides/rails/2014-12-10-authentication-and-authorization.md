@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rails Authentication and Authorization
-
+category: guides
 ---
 
 ## Authentication
@@ -14,7 +14,7 @@ Sessions are created by the sessions_controller.rb. They do not have a model. Th
 session#new is the login view.
 session#create is the action checking teh cerdentials and finding the user in the datatbase. The final part is to redirect to the users#show.
 (users_path(user))
-session#destroy 
+session#destroy
 
 ### before_action
 Before_action can contain many things.  In the context of *authorization* placeing "before_action :authorize" in the ApplicationController makes it available throu out the app.
@@ -59,6 +59,3 @@ authorize! :read, @user
 ### enum role attribute
 in the model in which the object has a role. (User as in defaule, admin, moderator. or )
 `enum role: %w(default admin)`
-
-
-

@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Ruby Style Guide 
+title: Ruby Style Guide
+category: guides
 excerpt: "Ruby Style Guide baised on Thoughtbot and using Hound."
 tags: [intro, beginner, ruby, style, thoughtbot, hound]
 ---
@@ -10,7 +11,7 @@ Style, Refactoring and CodeSmells
 ##Sandi Mets Rules
 ###No mothod can be longer than
 ###No calss can be longer than 100 lines
-###Only ever send one instance method form the controller to the view 
+###Only ever send one instance method form the controller to the view
 
 
 ##Scopes
@@ -61,7 +62,7 @@ Creating a single instance veriable in the controller to pass to the view
     end
 
     class HomePagePresenter
-      attr_reader 
+      attr_reader
       def initialize(category_id)
        @category_id = category_id
       end

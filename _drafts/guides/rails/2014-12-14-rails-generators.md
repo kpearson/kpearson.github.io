@@ -1,3 +1,7 @@
+---
+category: guides
+---
+
 *osx 10.10.1 | Jan 15, 2015*
 ###Quick reference to Rails Generators.
 
@@ -23,10 +27,10 @@ end
 ###Changing / Modifing Tables
 
 ####Adding Columns
-Generate an empty but corectly named migration file:  
+Generate an empty but corectly named migration file:
 `bin/rails generate migration AddPartNumberToProducts`
 
-Include a list of column names and types:  
+Include a list of column names and types:
 `bin/rails generate migration AddPartNumberToProducts part_number:string`
 
 will generate:

@@ -1,5 +1,6 @@
 ---
 layout: post
+category: guides
 title: Jekyll guide
 ---
 
@@ -72,8 +73,8 @@ var[0] = a
 var[1] = b
 Fails:
 
-var[0] = 
-var[1] = 
+var[0] =
+var[1] =
 first list filter
 
 {“a”=>”a0”, “b”=>”b0”}

@@ -1,18 +1,19 @@
 ---
 layout: post
-title: Google maps api 
+title: Google maps api
+category: guides
 excerpt: "Google maps api."
 tags: [intro, beginner, api, google, maps]
 ---
 ##Google Maps JavaScript API v3
 
-###API key  
-Start by aquireing a key by going to the [google developers console], create a new project 
+###API key
+Start by aquireing a key by going to the [google developers console], create a new project
 
 To use the api call in development simply leave out the api key param.
 
 ##Snazzymaps
-Using these styles in your website is as easy as copying the JSON on any style page.  
+Using these styles in your website is as easy as copying the JSON on any style page.
 
 
 ```ruby

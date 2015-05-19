@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Markdown Style Guide 
+title: Markdown Style Guide
+category: guides
 excerpt: "Markdown."
 tags: [intro, beginner, markdown, style]
 ---

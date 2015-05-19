@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  Sublime Text
+category: guides
 excerpt: "A few of the vim  basics."
 tags: [intro, beginner, vim, commands]
 ---
