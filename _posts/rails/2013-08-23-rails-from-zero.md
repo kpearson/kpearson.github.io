@@ -4,7 +4,6 @@ category: article
 title: Rails from Zero
 ---
 
-{% include _toc.html %}
 
 *osx 10.10.1   |  Jan 14, 2015*
 
@@ -148,6 +147,7 @@ require 'spec_helper'
 [Rspec feature tests] docs
 
 ## Capybara
+
 With `gem  'capybara'` in the `Gemfile` and bundled.
 Add `require 'capybara/rails'` to
 - if Rspec `spec/rails_helper.rb`
@@ -155,8 +155,8 @@ Add `require 'capybara/rails'` to
 Add `include Capybara::DSL` to the given *integration* test file.
 
 *Overview of DSL*
+
 - have_content '__'
--
 
 ## Heroku
 
@@ -262,13 +262,14 @@ saving a shopping cart in a cookie would intail storing the item id and and user
 Rookie stored carts are more fraginle but more consistantly stored. db carts require db interactions.
 
 ### Authentication
-    TODO:
+TODO:
 
 ### Authorization
-    TODO:
+TODO:
 
 #### Cancancan
-_Often over kill. If two or fewer logedin user rolels are called for a hand crafted soultion is probably the way to go._
+_Often over kill. If two or fewer logedin user rolels are called
+ for a hand crafted soultion is probably the way to go._
 
 Generate the Ability class with:
 {% highlight ruby %}
