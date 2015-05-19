@@ -213,16 +213,16 @@ With `gem 'dotenv'` in the `Gemfile` and bundled.
 Create a `.env` file in the application root.
 Add secrets to `.env` file.
 
-{% highlight ruby %}
+```ruby
 MAPS_KEY=<key>
-{% endhighlight %}
+```
 
 In the `secrets.yml` file
-Add the secret to each development environment.
+add the secret to each development environment.
 
 Example:
 
-{% highlight ruby %}
+```ruby
 development:
 secret_key_base: 51c002fa4674c4ac46cfdb2fb5360bbf535f5737b03c6c496baf0d7d86e088acf8f44f114bb1dcab58d6dc5e0e7b789c966ad8018dd20724deb23570fc0ef66b
 maps_key: <%= ENV["MAPS_KEY"] %>
@@ -234,7 +234,7 @@ maps_key: <%= ENV["MAPS_KEY"] %>
 production:
 secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 maps_key: <%= ENV["MAPS_KEY"] %>
-{% endhighlight %}
+```
 
 ## Controllers
 CRUD standards and best practices.
@@ -245,12 +245,12 @@ CRUD standards and best practices.
 ### Validations
 Model validation syntax:
 
-{% highlight ruby %}
+```ruby
 class Article < ActiveRecord::Base
   belongs_to :articles
   validates  :title, presence: true,	length: { minimum: 5 }
 end
-{% endhighlight %}
+```
 ## Sessions
 What is where and what things look like.
 A session is lives in the browsers momory when parts of it ar esaved they are saved in a cookie
@@ -262,10 +262,10 @@ saving a shopping cart in a cookie would intail storing the item id and and user
 Rookie stored carts are more fraginle but more consistantly stored. db carts require db interactions.
 
 ### Authentication
-					TODO:
+    TODO:
 
 ### Authorization
-					TODO:
+    TODO:
 
 #### Cancancan
 _Often over kill. If two or fewer logedin user rolels are called for a hand crafted soultion is probably the way to go._
