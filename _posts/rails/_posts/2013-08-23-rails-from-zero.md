@@ -12,13 +12,16 @@ title: Rails from Zero
 Assuming dependency: RVM or rbenv, Bundler, ...
 
 Create a new Rails app:
-{% highlight ruby %}
-rails new <app_name>
+{% bash ruby %}
+rails new <app_name> -T --database=postgresql --skip-turbolinks
 {% endhighlight %}
+This gives us a new Rails app with no test framwork (-T),
+a postgrsql database(--database=postgresql),
+and sans turbolinks (--skip-turbolinks).
 
-if using Rspec:
-{% highlight ruby %}
-rails new <app_name> --skip-test-unit
+If your using Rspec add `rspec-rails` gem to Gemfile and bundle
+{% bash ruby %}
+
 {% endhighlight %}
 
 *note: `-T `is equivalent to `--skip-test-unit`.  Both are only used on the `rails new` command.*
