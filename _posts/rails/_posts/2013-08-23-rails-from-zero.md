@@ -12,7 +12,7 @@ title: Rails from Zero
 Assuming dependency: RVM or rbenv, Bundler, ...
 
 Create a new Rails app:
-{% bash ruby %}
+{% highlight bash %}
 rails new <app_name> -T --database=postgresql --skip-turbolinks
 {% endhighlight %}
 This gives us a new Rails app with no test framwork (-T),
@@ -20,7 +20,7 @@ a postgrsql database(--database=postgresql),
 and sans turbolinks (--skip-turbolinks).
 
 If your using Rspec add `rspec-rails` gem to Gemfile and bundle
-{% bash ruby %}
+{% highlight bash %}
 
 {% endhighlight %}
 
