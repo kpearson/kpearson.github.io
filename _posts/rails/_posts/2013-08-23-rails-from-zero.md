@@ -1,5 +1,6 @@
 ---
 layout: post
+category: post
 title: Rails from Zero
 ---
 
@@ -19,11 +20,11 @@ This gives us a new Rails app with no test framwork (-T),
 a postgrsql database(--database=postgresql),
 and sans turbolinks (--skip-turbolinks).
 
-If your using Rspec add `rspec-rails` gem to Gemfile and bundle
+If your using Rspec add `rspec-rails` gem to Gemfile and bundle.
+Then run:
 {% highlight bash %}
-
+rails g rspec:install
 {% endhighlight %}
-
 *note: `-T `is equivalent to `--skip-test-unit`.  Both are only used on the `rails new` command.*
 
 
@@ -105,6 +106,7 @@ timeout: 5000
 development:
 <<: *default
 database: dinner_dash_development
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

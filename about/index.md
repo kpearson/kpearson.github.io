@@ -1,8 +1,8 @@
 ---
 layout: page
-title: About the Theme
-tags: [about, Jekyll, theme, responsive]
-modified: 2014-08-08T20:53:07.573882-04:00
+title: About me
+tags: [about, Kit Pearson, Ruby, Ruby on Rails, JavaScript]
+modified: 2015-05-18T20:53:07.573882-04:00
 comments: true
 image:
   feature: sample-image-2.jpg
