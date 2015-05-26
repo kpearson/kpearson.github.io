@@ -7,7 +7,7 @@ url:
 # Jekyll configuration
 
 permalink: /:categories/:title/
-markdown: redcarpet
+markdown: kramdown
 highlighter: rouge
 fenced_code_blocks: rouge
 sass:
@@ -19,6 +19,8 @@ safe: true
 lsi: false
 excerpt_separator: ""
 encoding: "utf-8"
+
+
 
 kramdown:
   auto_ids: true
