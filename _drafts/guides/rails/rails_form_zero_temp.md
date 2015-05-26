@@ -67,10 +67,6 @@ Creates the test Database named in the database.yml file and runs the migrations
 Start Guard:
 `bundle exec guard`
 
-
-
-
-
 ## Unicorn
 //TODO: Unicorn in development.
 
@@ -136,7 +132,6 @@ gem 12factor
 
 ## Apache or NGINX already handles this.
 config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
-
 
 # Compress JavaScripts and CSS.
 config.assets.js_compressor = :uglifier
