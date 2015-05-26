@@ -16,6 +16,8 @@ sass:
   style: compressed
 gems:
   - jekyll-sitemap
+safe: true
+lsi: false
 
 kramdown:
   auto_ids: true

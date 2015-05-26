@@ -3,7 +3,7 @@ layout: {{ layout }}
 title: {{ title }}
 modified:
 categories: {{ post }}
-excerpt:
+excerpt: ""
 tags: []
 image:
   feature:
