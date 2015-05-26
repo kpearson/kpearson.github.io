@@ -2,6 +2,6 @@
 layout: post
 category: article
 title: Rails from Zero
-excerpt: ""
+excerpt_separator: ""
 ---
 
