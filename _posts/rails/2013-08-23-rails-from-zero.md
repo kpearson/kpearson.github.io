@@ -25,7 +25,7 @@ Then run:
 {% highlight bash %}
 rails g rspec:install
 {% endhighlight %}
-*note: `-T `is equivalent to `--skip-test-unit`.
+*note: `-T` is equivalent to `--skip-test-unit`.
 Both are only used on the `rails new` command.*
 
 ## Add gems to `Gemfile`:
