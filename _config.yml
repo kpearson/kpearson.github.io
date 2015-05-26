@@ -4,11 +4,10 @@ title:  Trial & Error
 locale: en_US
 url:
 
-
 # Jekyll configuration
 
-permalink:   /:categories/:title/
-markdown:   kramdown
+permalink: /:categories/:title/
+markdown: redcarpet
 highlighter: rouge
 fenced_code_blocks: rouge
 sass:
@@ -19,6 +18,7 @@ gems:
 safe: true
 lsi: false
 excerpt_separator: ""
+encoding: "utf-8"
 
 kramdown:
   auto_ids: true
