@@ -8,7 +8,7 @@ url:
 # Jekyll configuration
 
 permalink:   /:categories/:title/
-markdown:   redcarpet
+markdown:   kramdown
 highlighter: rouge
 fenced_code_blocks: rouge
 sass:
