@@ -1,30 +1,4 @@
 
-## Testing Framework
-
-Next (depending on the test-framework) run the installation generator:
-
-__[Minitest]__
-
-`rails generate minitest:install`
-This will add the `test_helper.rb` file to the `test/` directory.
-
-__Or__
-
-__[Rspec]__
-
-`rails generate rspec:install`
-This adds the following files which are used for configuration:
-
-- .rspec
-- spec/spec_helper.rb
-- spec/rails_helper.rb
-
-[Guard] generator:__
-
-`guard init rspec __or__ minitest`
-
-***
-
 ## Postgres
 
 Setup postgres in Production, Test and/or Development.
@@ -381,22 +355,3 @@ end
 from with in the console run:
 `y Rails.application.config.assets.paths`
 
-[rails_12factor]: https://github.com/heroku/rails_12factor
-[ActionView helpers]: http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html
-[form helpers]: http://guides.rubyonrails.org/form_helpers.html
-[Routing]: http://edgeguides.rubyonrails.org/routing.html
-[factory_girl]: https://github.com/thoughtbot/factory_girl
-[Guard]: https://github.com/guard/guard
-[guard-rspec]: https://github.com/guard/guard-rspec
-[guard-minitest]: https://github.com/guard/guard-minitest
-[Growl]: http://growl.info/downloads
-[growl_gem]: https://rubygems.org/gems/growl
-[Bundler]: http://bundler.io/
-[Minitest]: https://github.com/blowmage/minitest-rails
-[Rspec]: https://github.com/rspec/rspec-rails
-[Command line options]: https://github.com/guard/guard/wiki/Command-line-options-for-Guard
-[pry]: http://pryrepl.org/
-[partials]: http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials
-[Scopes]: http://guides.rubyonrails.org/active_record_querying.html#scopes
-[Rspec feature tests]: https://github.com/rspec/rspec-rails#feature-specs
-[Capybara]: https://github.com/jnicklas/capybara
