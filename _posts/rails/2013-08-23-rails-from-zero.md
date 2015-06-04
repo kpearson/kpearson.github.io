@@ -63,3 +63,39 @@ end
 
 With test frame work chosen and gems in place run:
 `bin/bundle`
+## Add gems to `Gemfile`:
+
+__[Minitest]__
+
+{% highlight ruby %}
+group :test, :development do
+  gem 'pg'
+  gem 'minitest-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'growl'
+  gem 'guard'
+  gem 'pry-rails'
+  gem 'guard-minitest', require: false
+end
+{% endhighlight %}
+
+__Or__
+
+__[Rspec]__
+
+{% highlight ruby %}
+group :test, :development do
+  gem 'pg'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'growl'
+  gem 'guard'
+  gem 'pry-rails'
+  gem 'guard-rspec', require: false
+end
+{% endhighlight %}
+
+With test frame work chosen and gems in place run:
+`bin/bundle`

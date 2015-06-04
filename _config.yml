@@ -7,10 +7,9 @@ url:
 # Jekyll configuration
 
 permalink: /:categories/:title/
-pygments: false
 markdown: redcarpet
 highlighter: Pygments
-# fenced_code_blocks: rouge
+fenced_code_blocks: Pygments
 sass:
   sass_dir: _sass
   style: compressed
