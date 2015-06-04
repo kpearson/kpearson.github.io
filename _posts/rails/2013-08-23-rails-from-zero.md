@@ -11,7 +11,7 @@ title: Rails from Zero
 Prerequisites: RVM or rbenv, Bundler, ...
 Create a new Rails app:
 
-```ruby
+```
 rails new <app_name> -T --database=postgresql --skip-turbolinks
 ```
 
@@ -21,9 +21,9 @@ and sans turbolinks (--skip-turbolinks).
 
 If your using Rspec add `rspec-rails` gem to Gemfile and bundle.
 Then run:
-{% highlight bash %}
+```bash
 rails g rspec:install
-{% endhighlight %}
+```
 *note: `-T` is equivalent to `--skip-test-unit`.
 Both are only used on the `rails new` command.*
 
@@ -31,7 +31,7 @@ Both are only used on the `rails new` command.*
 
 __[Minitest]__
 
-{% highlight ruby %}
+```ruby
 group :test, :development do
   gem 'pg'
   gem 'minitest-rails'
@@ -42,7 +42,7 @@ group :test, :development do
   gem 'pry-rails'
   gem 'guard-minitest', require: false
 end
-{% endhighlight %}
+```
 
 __Or__
 
