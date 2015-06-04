@@ -11,9 +11,9 @@ title: Rails from Zero
 Prerequisites: RVM or rbenv, Bundler, ...
 Create a new Rails app:
 
-{% highlight bash %}
+```ruby
 rails new <app_name> -T --database=postgresql --skip-turbolinks
-{% endhighlight %}
+```
 
 This gives us a new Rails app with no test framwork (-T),
 a postgrsql database(--database=postgresql),
