@@ -9,7 +9,7 @@ url:
 permalink: /:categories/:title/
 pygments: false
 markdown: redcarpet
-highlighter: rouge
+# highlighter: rouge
 # fenced_code_blocks: rouge
 sass:
   sass_dir: _sass
