@@ -8,8 +8,8 @@ url:
 
 permalink: /:categories/:title/
 markdown: kramdown
-highlighter: rouge
-# fenced_code_blocks: rouge
+highlighter: pygments
+fenced_code_blocks: pygments
 sass:
   sass_dir: _sass
   style: compressed
