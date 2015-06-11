@@ -1,6 +1,24 @@
 // GOOGLE FONTS
 // --------------------------------------------------
 
+@import url(http://fonts.googleapis.com/css?family=Petit+Formal+Script|Source+Code+Pro);
+
+
+
+
+
+@font-face {
+  font-family: 'Petit Formal Script', cursive;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Petit Formal Script'), local('Petit-Formal-Script'), url(http://themes.googleusercontent.com/static/fonts/ptsansnarrow/v5/UyYrYy3ltEffJV9QueSi4RdbPw3QSf9R-kE0EsQUn2A.woff) format('woff');
+}
+@font-face {
+  font-family: 'Source Code Pro', ;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Code Pro'), local('PT-Sans-Narrow'), url(http://themes.googleusercontent.com/static/fonts/ptsansnarrow/v5/UyYrYy3ltEffJV9QueSi4RdbPw3QSf9R-kE0EsQUn2A.woff) format('woff');
+}
 @font-face {
   font-family: 'PT Sans Narrow';
   font-style: normal;

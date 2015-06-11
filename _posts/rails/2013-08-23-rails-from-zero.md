@@ -21,18 +21,15 @@ This gives us a new Rails app with no test framwork (-T),
 a postgrsql database(--database=postgresql),
 and no turbolinks (--skip-turbolinks).
 
-## Gems
+## Add Gems
 
 ```ruby
-group :test, :development do
   gem 'pg'
+  gem 'pry-rails'
+group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'growl'
-  gem 'guard'
-  gem 'pry-rails'
-  gem 'guard-rspec', require: false
 end
 ```
 
@@ -77,7 +74,19 @@ This adds the following files which are used for configuration:
 - - spec/rails_helper.rb
 ```
 
-### [Guard]
+## [Guard]
+
+Gard audimates test runs.
+
+__Add Gems:__
+
+```ruby
+group :test, :development do
+  gem 'growl'
+  gem 'guard'
+  gem 'guard-rspec', require: false
+end
+```
 
 ```bash
 guard init rspec __or__ minitest
