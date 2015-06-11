@@ -21,7 +21,7 @@ This gives us a new Rails app with no test framwork (-T),
 a postgrsql database(--database=postgresql),
 and no turbolinks (--skip-turbolinks).
 
-__Add Gems__
+__Add Gems:__
 
 ```ruby
   gem 'pg'
