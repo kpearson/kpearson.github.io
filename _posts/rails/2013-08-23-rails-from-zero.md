@@ -4,7 +4,7 @@ category: article
 title: Rails from Zero
 ---
 
-*osx 10.10.3 | Jan 14, 2015 | Ruby 2.1.3 | Rails 3.2.1*
+*Ruby 2.1.3 | Rails 3.2.1 | Jan 14, 2015*
 
 ## Prerequisites
 
