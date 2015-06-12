@@ -24,17 +24,17 @@ and no turbolinks (--skip-turbolinks).
 __Add Gems:__
 
 ```ruby
-  gem 'pg'
   gem 'pry-rails'
 
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner', '~> 1.4.1'
 end
 ```
 
-If Minitest is your thing swap out the rspec spsific gem with:
+If Minitest is your thing, swap out the rspec spsific gem with:
 
 ```ruby
 group :test, :development do
@@ -49,17 +49,9 @@ With test frame work chosen and gems in place run:
 bin/bundle
 ```
 
-## Testing Framework
+## Initialize & Configure Testing Framework
 
 Next depending on the test-framework run the installation generator:
-
-### [Minitest]
-
-```bash
-rails generate minitest:install
-```
-
-This will add the `test_helper.rb` file to the `test/` directory.
 
 ### [Rspec]
 
@@ -74,6 +66,59 @@ This adds the following files which are used for configuration:
 - - spec/spec_helper.rb
 - - spec/rails_helper.rb
 ```
+
+### Configure
+
+#### [Capybara]
+
+Setup
+
+Add gems:
+```ruby
+# Gemfile
+group :test, :development do
+  gem 'capybara'
+  gem 'launchy'
+end
+```
+
+Configure:
+```ruby
+# rails_helper.rb
+require 'capybara/rails'
+```
+
+#### Database Cleaner
+
+Create file and with:
+```ruby
+# spec/support/database_cleaner.rb
+require 'database_cleaner'
+
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
+
+end
+```
+
+### [Minitest]
+
+```bash
+rails generate minitest:install
+```
+
+This will add the `test_helper.rb` file to the `test/` directory.
+
 
 ## [Guard]
 
