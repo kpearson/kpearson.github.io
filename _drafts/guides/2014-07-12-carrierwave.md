@@ -3,11 +3,9 @@ layout: post
 title: Carrierwave Gem
 ---
 
-
-I needed to add:
-
+Add the `uploaders` directiory to the asset pipe line loadpath in config/application:
 ```ruby
+#config/application.rb
+
 config.autoload_paths += "#{Rails.root}/app/uploaders"
 ```
-
-to `config/appication.rb`

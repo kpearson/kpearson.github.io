@@ -13,6 +13,7 @@ base
 ```
 
 "abc".method(:class).owner  #  => Kernel
+
 "abc".class                 #  => String
 
 
