@@ -20,8 +20,6 @@ lsi: false
 excerpt_separator: ""
 encoding: "utf-8"
 
-
-
 kramdown:
   auto_ids: true
   footnote_nr: 1

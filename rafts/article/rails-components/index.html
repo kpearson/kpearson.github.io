@@ -1,0 +1,296 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Rails Components &#8211; Trial & Error</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Rails Components">
+<meta name="twitter:description" content="">
+<meta name="twitter:site" content="@kit_pearson">
+<meta name="twitter:creator" content="@kit_pearson">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/default-thumb.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rails Components">
+<meta property="og:description" content="">
+<meta property="og:url" content="/article/rails-components/">
+<meta property="og:site_name" content="Trial & Error">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@station_road">
+<meta name="twitter:creator" content="@kit_pearson">
+<meta name="twitter:title" content="Developer Notes">
+<meta name="twitter:description" content="Pulling together all the details need to implement an idea, feature or module of code can be a little repetitive. Welcome to the ongoing result of my scavenger hunt."
+<meta name="twitter:image:src" content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg">
+
+
+
+
+
+
+<link rel="canonical" href="/article/rails-components/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Trial & Error Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Trial & Error</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				    
+				        
+				    
+				    <li><a href="/about/" >About</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="/posts/" >Posts</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="/guides/" >Guides</a></li>
+				
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+
+	<img src="/images/kiT_120411_1016_Square.jpg" class="bio-photo" alt="Kit Pearson bio photo">
+
+
+  <h3 itemprop="name">Kit Pearson</h3>
+  <p>Developer and camera pointer.</p>
+  <a href="mailto:dev_kit@icloud.com" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a>
+  <a href="http://twitter.com/kit_pearson" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>
+  
+  
+  
+  
+  
+  <a href="http://github.com/kpearson" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+  </div>
+  <article class="post">
+    <div class="headline-wrap">
+      
+        <h1><a href="/article/rails-components/" rel="bookmark" title="Rails Components">Rails Components</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>We are fortunate to be building app in a time of relatively mature battle
+tested frameworks. While amazingly powerful and easy to use, the building blocks
+that make up these frameworks can become increasingly difficult to reason about
+as an apps complexity grows and it&#39;s requirement push the capabilities of the
+framework. <strong>One of the key skills to building software within a framework is
+understanding the role of its components and how they interact.</strong> Here are a
+few of my go to tools and techniques for looking the components of a
+Ruby on Rails in isolation with as few dependencies as possible.</p>
+
+<h2>Dependencys</h2>
+
+<p>When we go about lighting up a pice of code outside of it&#39;s framework one of the
+biggest things we can learn is what are it dependencies, what it needs to do
+what it does and pehapes how to subvert those needs.</p>
+
+<h2>Ruby</h2>
+
+<p>In the case of the Ruby on Rails ecosystem, the libraries that make up Rails
+engines and Ruby gems used in a Rails application are called components.
+A rails engine is like a mini Rails app, with models, views and controllers,
+rake tasks etc. Component dependencies are defined in <code>.gemspec</code> file,
+test suite will test it in isolation and confirm its dependency structure.</p>
+
+<h2>Example time</h2>
+
+<p>The example we are going to look at here is consumming an third party API with
+the Hurly gem. When consuming an api we need to employ some kind of http request
+adapter. Let’s taking a look at the Github api. The Github api requires us to
+have a site key to make requests. Github&#39;s api follows REST patterns so uri&#39;s
+return what we mient expect.</p>
+
+<p>Before we move on we are going to need to have a few gems installed. We arent
+going to be using a gem file so they will need to installed with <code>gem install ...</code>
+from the command line.
+- First the Hurley gem: <code>gem install hurley</code>.
+- Pry gem: <code>gem install pry</code> (My tool of choice for looking at what’s
+   happening inside a ruby method)
+- JSON gem: <code>gem install json</code></p>
+
+<p>Create a new file (outside of a project directory). At the top of the file
+require in the gems we just installed.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;hurley&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;json&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;pry&#39;</span>
+</code></pre></div>
+<p>Then based on the Hurly documentation,
+We need to create a <code>Hurley::Client</code> object with the url of the api.
+With that in place we can create a block with the API url and any addition params we need. With
+Github we need at minimum a app<em>key and app</em>secret.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">code</span> <span class="n">snippet</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>Running this with in the terminal with the command <code>ruby file_name.rb</code> we can
+learn several things. How Hurley needs to be stup and what the api call looks
+like. As I put this file together I had a general idea what the api should
+respond to from the docs and how to implement Hurley but I found things needed
+some tuning.</p>
+
+<p>The way I go about this is to drop in a <code>binding.pry</code> to halte execution of
+the file.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;!--</span><span class="n">code</span><span class="o">--&gt;</span>
+</code></pre></div>
+<p>Once in the pry session we can do all sorts of amazing things. Notice where I
+place the pry statement, after the <code>get</code> block. Also assigning the result of
+the get request to variable let us play around with it to find out how to
+extract the data we need. The puts is there because pry can&#39;t be the last thing
+evaluated. If Github wasn&#39;t responding the as expected we could place it before
+or inside the get request and build up the request making sure Github is
+getting the needed params. The important thing here is rapid experimentation.
+By eliminating all but the essentials pieces we can reason about the gem and
+its characteristics very rapidly without questions about how Rails may be
+affecting the outcome.</p>
+
+<h2>Testing</h2>
+
+<p>Clear understanding of the components in an app leads to a better mode
+strategic testing. Knowing what is needed and not needed for a component to
+work as expected tells us how and what to stub and most importantly what to
+require. Any time we can leave out rails when testing is going to give us
+faster tests, in the case with Hurley making api calls we learned all we need
+to require is Hurley and json.</p>
+
+<p>Inevitably with any new gem or api there are bound to be surprises. By keeping
+track the things I learn along the way I gain a much better sense of the edge
+cases to test for.</p>
+
+<h2>Putting it all together</h2>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="social-share">
+  <h4>Share on</h4>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=/article/rails-components/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=/article/rails-components/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=/article/rails-components/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+  </ul>
+</div><!-- /.social-share -->
+        <p class="byline"><strong>Rails Components</strong> was published on <time datetime="2015-08-15T00:00:00-07:00">August 15, 2015</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="/guides/guide/vim/" title="Vim">Vim</a></li>
+    
+      <li><a href="/guides/guide/homebrew/" title="Homebrew">Homebrew</a></li>
+    
+      <li><a href="/article/rails-from-zero/" title="Rails from Zero">Rails from Zero</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    
+
+<span>&copy; 2015 Kit Pearson. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+</body>
+</html>

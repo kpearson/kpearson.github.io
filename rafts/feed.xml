@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">Trial & Error</title>
+<generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="/feed.xml" />
+<link rel="alternate" type="text/html" href="" />
+<updated>2015-08-07T17:59:32-07:00</updated>
+<id>/</id>
+<author>
+  <name>Kit Pearson</name>
+  <uri>/</uri>
+  <email>dev_kit@icloud.com</email>
+</author>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[Rails Components]]></title>
+  <link rel="alternate" type="text/html" href="/article/rails-components/" />
+  <id>/article/rails-components</id>
+  <published>2015-08-15T00:00:00-07:00</published>
+  <updated>2015-08-15T00:00:00-07:00</updated>
+  <author>
+    <name>Kit Pearson</name>
+    <uri></uri>
+    <email>dev_kit@icloud.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;We are fortunate to be building app in a time of relatively mature battle
+tested frameworks. While amazingly powerful and easy to use, the building blocks
+that make up these frameworks can become increasingly difficult to reason about
+as an apps complexity grows and it&amp;#39;s requirement push the capabilities of the
+framework. &lt;strong&gt;One of the key skills to building software within a framework is
+understanding the role of its components and how they interact.&lt;/strong&gt; Here are a
+few of my go to tools and techniques for looking the components of a
+Ruby on Rails in isolation with as few dependencies as possible.&lt;/p&gt;
+
+&lt;h2&gt;Dependencys&lt;/h2&gt;
+
+&lt;p&gt;When we go about lighting up a pice of code outside of it&amp;#39;s framework one of the
+biggest things we can learn is what are it dependencies, what it needs to do
+what it does and pehapes how to subvert those needs.&lt;/p&gt;
+
+&lt;h2&gt;Ruby&lt;/h2&gt;
+
+&lt;p&gt;In the case of the Ruby on Rails ecosystem, the libraries that make up Rails
+engines and Ruby gems used in a Rails application are called components.
+A rails engine is like a mini Rails app, with models, views and controllers,
+rake tasks etc. Component dependencies are defined in &lt;code&gt;.gemspec&lt;/code&gt; file,
+test suite will test it in isolation and confirm its dependency structure.&lt;/p&gt;
+
+&lt;h2&gt;Example time&lt;/h2&gt;
+
+&lt;p&gt;The example we are going to look at here is consumming an third party API with
+the Hurly gem. When consuming an api we need to employ some kind of http request
+adapter. Let’s taking a look at the Github api. The Github api requires us to
+have a site key to make requests. Github&amp;#39;s api follows REST patterns so uri&amp;#39;s
+return what we mient expect.&lt;/p&gt;
+
+&lt;p&gt;Before we move on we are going to need to have a few gems installed. We arent
+going to be using a gem file so they will need to installed with &lt;code&gt;gem install ...&lt;/code&gt;
+from the command line.
+- First the Hurley gem: &lt;code&gt;gem install hurley&lt;/code&gt;.
+- Pry gem: &lt;code&gt;gem install pry&lt;/code&gt; (My tool of choice for looking at what’s
+   happening inside a ruby method)
+- JSON gem: &lt;code&gt;gem install json&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Create a new file (outside of a project directory). At the top of the file
+require in the gems we just installed.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;hurley&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;json&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;pry&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then based on the Hurly documentation,
+We need to create a &lt;code&gt;Hurley::Client&lt;/code&gt; object with the url of the api.
+With that in place we can create a block with the API url and any addition params we need. With
+Github we need at minimum a app&lt;em&gt;key and app&lt;/em&gt;secret.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;snippet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Running this with in the terminal with the command &lt;code&gt;ruby file_name.rb&lt;/code&gt; we can
+learn several things. How Hurley needs to be stup and what the api call looks
+like. As I put this file together I had a general idea what the api should
+respond to from the docs and how to implement Hurley but I found things needed
+some tuning.&lt;/p&gt;
+
+&lt;p&gt;The way I go about this is to drop in a &lt;code&gt;binding.pry&lt;/code&gt; to halte execution of
+the file.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once in the pry session we can do all sorts of amazing things. Notice where I
+place the pry statement, after the &lt;code&gt;get&lt;/code&gt; block. Also assigning the result of
+the get request to variable let us play around with it to find out how to
+extract the data we need. The puts is there because pry can&amp;#39;t be the last thing
+evaluated. If Github wasn&amp;#39;t responding the as expected we could place it before
+or inside the get request and build up the request making sure Github is
+getting the needed params. The important thing here is rapid experimentation.
+By eliminating all but the essentials pieces we can reason about the gem and
+its characteristics very rapidly without questions about how Rails may be
+affecting the outcome.&lt;/p&gt;
+
+&lt;h2&gt;Testing&lt;/h2&gt;
+
+&lt;p&gt;Clear understanding of the components in an app leads to a better mode
+strategic testing. Knowing what is needed and not needed for a component to
+work as expected tells us how and what to stub and most importantly what to
+require. Any time we can leave out rails when testing is going to give us
+faster tests, in the case with Hurley making api calls we learned all we need
+to require is Hurley and json.&lt;/p&gt;
+
+&lt;p&gt;Inevitably with any new gem or api there are bound to be surprises. By keeping
+track the things I learn along the way I gain a much better sense of the edge
+cases to test for.&lt;/p&gt;
+
+&lt;h2&gt;Putting it all together&lt;/h2&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/article/rails-components/&quot;&gt;Rails Components&lt;/a&gt; was originally published by Kit Pearson at &lt;a href=&quot;&quot;&gt;Trial & Error&lt;/a&gt; on August 15, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[Vim]]></title>
+  <link rel="alternate" type="text/html" href="/guides/guide/vim/" />
+  <id>/guides/guide/vim</id>
+  <published>2015-02-01T00:00:00-08:00</published>
+  <updated>2015-02-01T00:00:00-08:00</updated>
+  <author>
+    <name>Kit Pearson</name>
+    <uri></uri>
+    <email>dev_kit@icloud.com</email>
+  </author>
+  <content type="html">
+    &lt;script src=&quot;https://gist.github.com/kpearson/2e960def1f197031e82a.js&quot;&gt; &lt;/script&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/guides/guide/vim/&quot;&gt;Vim&lt;/a&gt; was originally published by Kit Pearson at &lt;a href=&quot;&quot;&gt;Trial & Error&lt;/a&gt; on February 01, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[Homebrew]]></title>
+  <link rel="alternate" type="text/html" href="/guides/guide/homebrew/" />
+  <id>/guides/guide/homebrew</id>
+  <published>2014-12-15T00:00:00-08:00</published>
+  <updated>2014-12-15T00:00:00-08:00</updated>
+  <author>
+    <name>Kit Pearson</name>
+    <uri></uri>
+    <email>dev_kit@icloud.com</email>
+  </author>
+  <content type="html">
+    &lt;script src=&quot;https://gist.github.com/kpearson/9661ea5de9f460fb5e8b.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;osx 10.10.1     Jan 14, 2015&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/guides/guide/homebrew/&quot;&gt;Homebrew&lt;/a&gt; was originally published by Kit Pearson at &lt;a href=&quot;&quot;&gt;Trial & Error&lt;/a&gt; on December 15, 2014.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[Rails from Zero]]></title>
+  <link rel="alternate" type="text/html" href="/article/rails-from-zero/" />
+  <id>/article/rails-from-zero</id>
+  <published>2013-08-23T00:00:00-07:00</published>
+  <updated>2013-08-23T00:00:00-07:00</updated>
+  <author>
+    <name>Kit Pearson</name>
+    <uri></uri>
+    <email>dev_kit@icloud.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;&lt;em&gt;Ruby 2.1.3 | Rails 3.2.1 | Jan 14, 2015&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2&gt;Prerequisites&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;RVM or rbenv&lt;/li&gt;
+&lt;li&gt;Bundler&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Create a new Rails app&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;rails new &amp;lt;app_name&amp;gt; -T --database&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;postgresql --skip-turbolinks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This gives us a new Rails app with no test framwork (-T),
+a postgrsql database(--database=postgresql),
+and no turbolinks (--skip-turbolinks).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Add Gems:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;pry-rails&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:development&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rspec-rails&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;capybara&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;launchy&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;database_cleaner&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;~&amp;gt; 1.4.1&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If Minitest is your thing, swap out the rspec spsific gem with:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:development&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;minitest-rails&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;guard-minitest&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;With test frame work chosen and gems in place run:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bin/bundle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Initialize &amp;amp; Configure Testing Framework&lt;/h2&gt;
+
+&lt;p&gt;Next depending on the test-framework run the installation generator:&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href=&quot;https://github.com/rspec/rspec-rails&quot;&gt;Rspec&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;rails generate rspec:install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This adds the following files which are used for configuration:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;- .rspec
+- - spec/spec_helper.rb
+- - spec/rails_helper.rb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Configure&lt;/h3&gt;
+
+&lt;h4&gt;&lt;a href=&quot;https://github.com/jnicklas/capybara&quot;&gt;Capybara&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;Setup&lt;/p&gt;
+
+&lt;p&gt;Add gems:
+```ruby&lt;/p&gt;
+
+&lt;h1&gt;Gemfile&lt;/h1&gt;
+
+&lt;p&gt;group :test, :development do
+  gem &amp;#39;capybara&amp;#39;
+  gem &amp;#39;launchy&amp;#39;
+end
+```&lt;/p&gt;
+
+&lt;p&gt;Configure:
+```ruby&lt;/p&gt;
+
+&lt;h1&gt;rails_helper.rb&lt;/h1&gt;
+
+&lt;p&gt;require &amp;#39;capybara/rails&amp;#39;
+```&lt;/p&gt;
+
+&lt;h4&gt;Database Cleaner&lt;/h4&gt;
+
+&lt;p&gt;Create file and with:
+```ruby&lt;/p&gt;
+
+&lt;h1&gt;spec/support/database_cleaner.rb&lt;/h1&gt;
+
+&lt;p&gt;require &amp;#39;database_cleaner&amp;#39;&lt;/p&gt;
+
+&lt;p&gt;RSpec.configure do |config|&lt;/p&gt;
+
+&lt;p&gt;config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end&lt;/p&gt;
+
+&lt;p&gt;config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end&lt;/p&gt;
+
+&lt;p&gt;end
+```&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href=&quot;https://github.com/blowmage/minitest-rails&quot;&gt;Minitest&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;rails generate minitest:install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will add the &lt;code&gt;test_helper.rb&lt;/code&gt; file to the &lt;code&gt;test/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h2&gt;&lt;a href=&quot;https://github.com/guard/guard&quot;&gt;Guard&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Gard audimates test runs.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Add Gems:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:development&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;growl&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;guard&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;guard-rspec&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;guard init rspec __or__ minitest
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;&lt;a href=&quot;/article/rails-from-zero/&quot;&gt;Rails from Zero&lt;/a&gt; was originally published by Kit Pearson at &lt;a href=&quot;&quot;&gt;Trial & Error&lt;/a&gt; on August 23, 2013.&lt;/p&gt;
+  </content>
+</entry>
+
+</feed>

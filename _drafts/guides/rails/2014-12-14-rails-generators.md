@@ -1,15 +1,15 @@
 ---
+layout: guide
 category: guides
 ---
 
 *osx 10.10.1 | Jan 15, 2015*
-###Quick reference to Rails Generators.
+## Rails Generators Refference.
+A quick refference to syntax, pluralization and options for Rails generators.
 
+## [Migrations]
 
-##[Migrations]
-*What has been generated for you is just a starting point. You can add or remove from it as you see fit by editing the migration file.*
-
-###Creating Tables
+### Creating Tables
 If the migration name is of the form "CreateXXX" and is followed by a list of column names and types then a migration creating the table XXX with the columns listed will be generated. For example:
 `bin/rails generate migration CreateProducts name:string part_number:string`
 generates:
@@ -24,9 +24,9 @@ class CreateProducts < ActiveRecord::Migration
 end
 ```
 
-###Changing / Modifing Tables
+### Changing / Modifing Tables
 
-####Adding Columns
+#### Adding Columns
 Generate an empty but corectly named migration file:
 `bin/rails generate migration AddPartNumberToProducts`
 
@@ -54,7 +54,7 @@ class AddPartNumberToProducts < ActiveRecord::Migration
 end
 ```
 
-####Removing Columns
+#### Removing Columns
 Generate a migration for removing a column:
 `bin/rails generate migration RemovePartNumberFromProducts part_number:string`
 generates:
@@ -66,10 +66,9 @@ class RemovePartNumberFromProducts < ActiveRecord::Migration
 end
 ```
 
+## Models
 
-
-##Models
-Capitolize and Singular model name.
+Capitolize, Singular model name.
 
 ```ruby
 bin/rails generate model Article title:string text:text
@@ -82,16 +81,68 @@ bin/rails generate model Comment commenter:string body:text article:references
 ```
 
 Generates:
-  - Migration file (To create the corresponding database table.)
-  - Model file (The Comment model with the `belongs_to :article` line.)
-  - Corisponding Test file
+
+- Migration file (To create the corresponding database table.)
+- Model file (The Comment model with the `belongs_to :article` line.)
+- Corisponding Test file
+
+## Controllers
+
+>Note: I usualy build controllers by hand. But for the times do use the generateor.
+
+Capitolize and (almost always)pluralize controller name.
+
+```shell
+bin/rails g Users
+```
+
+The controller generater takes two types of agruments.
+first, controller actions like index, new, and create. For each of these the
+Rails generator give us a corosponding action, route and view.
+I nearly always rebuild the route using the `resource` syntax.
+
+Options list:
+`--no-` followed by `optionname`:
+`--no-helper`
+`--no-assets`
+`--np-controller-specs`
+`--no-view-specs`
 
 
-##Controllers
+Example with actions:
 
+```shell
+bin/rails g Users index new create
+```
 
+```ruby
+# app/controllers/users.rb
 
+class UsersController < ApplicationController
+  def index
+  end
 
+  def new
+  end
 
+  def create
+  end
+end
+```
+
+and
+
+```ruby
+# config/routes.rb
+
+Rails.application.routes.draw do
+  get 'users/index'
+
+  get 'users/new'
+
+  get 'users/create'
+
+end
+```
 
 [Migrations]: http://edgeguides.rubyonrails.org/active_record_migrations.html
