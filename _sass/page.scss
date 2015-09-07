@@ -359,10 +359,19 @@ $button-size: 1.5rem;
 }
 
 /* Default social media links in author sidebar */
+
+.article-author-side {
+  .author-social-outer {
+    a {
+      display: inline;
+    }
+  }
+}
+
 .author-social {
   display: block;
   margin-bottom: 5px;
-  @include font-rem(14);
+  @include font-rem(10);
   color: $black;
   &:visited {
     color: $black;
@@ -374,8 +383,8 @@ $button-size: 1.5rem;
     @include translate(0, 2px);
   }
   .fa {
-		margin-right: 5px;
-	}
+    margin-right: 5px;
+  }
 }
 
 /* Author sidebar */
