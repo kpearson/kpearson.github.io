@@ -1,6 +1,6 @@
 ---
 layout: guide-index
-title: Guides and Cheetsheets
+title: Quick Refrence Guides
 excerpt: "Developer notes. A collection of code that worked for me."
 ---
 
