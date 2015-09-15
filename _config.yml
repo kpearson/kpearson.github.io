@@ -1,6 +1,6 @@
 # Site wide configuration
 
-title:  Trial & Error
+title:  Trial & error
 locale: en_US
 url:
 
@@ -30,13 +30,37 @@ kramdown:
   use_coderay: false
   input: GFM
 
+collections:
+  guides:
+    output: true
+
+# Default front matter
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+      tags: [kit pearson, web development, ruby, ruby on rails, javascript]
+  -
+    scope:
+      path: ""
+      type: "guides"
+    values:
+      date: 2013-11-02 00:00:00 -0800
+      layout: "guide"
+      comments: true
+      tags: [kit pearson, web development, ruby, ruby on rails, javascript]
+
 # Site owner
 owner:
   name: Kit Pearson
   avatar: kiT_120411_1016_Square.jpg
-  bio: "Developer and camera pointer."
+  bio: "Developer of web things. Discovering what I don't know. Ruby and JavaScript for the time being."
   email: dev_kit@icloud.com
-  disqus-shortname:
+  disqus-shortname: trial-and-error
   twitter: kit_pearson
   facebook: #https://www.facebook.com/kiTpearsonPhoto
   google:
@@ -48,17 +72,12 @@ owner:
   bing-verify:
   github: kpearson
   stackoverflow: #http://stackoverflow.com/users/1999148/kit
-  linkedin: #https://www.linkedin.com/profile/view?id=23091578
+  linkedin: kit-pearson/7/897/222
   instagram: #username
-  lastfm: #username
   tumblr: #username
   pinterest: #username
-  foursquare: #username
-  steam: #username
-  dribbble: #username
   youtube: #username
   soundcloud: #username
-  weibo: #username
   flickr: #username
 
 include: [".htaccess"]

@@ -13,7 +13,7 @@
 
 {% include _navigation.html %}
 
-{% if page.image.feature %}
+{% if guide.image.feature %}
   <div class="image-wrap">
   <img src=
     {% if page.image.feature contains 'http' %}
@@ -29,7 +29,7 @@
   <div class="article-author-side">
     {% include _author-bio.html %}
   </div>
-  <article class="guide">
+  <article class="post">
     <div class="headline-wrap">
       {% if page.link %}
         <h1><a href="{{ page.link }}">{{ page.title }}</a></h1>
@@ -42,7 +42,8 @@
       <hr />
       <footer role="contentinfo">
         {% if page.share != false %}{% include _social-share.html %}{% endif %}
-				<p class="byline"><strong>{{ page.title }}</strong> was published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>{% if page.modified %} and last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time>{% endif %}.</p>
+				<p class="byline"><strong>{{ page.title }}</strong> was published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>{% if page.modified %} and last modified on <time datetime="{{ page.modified | date: "%Y&#45;%m&#45;%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time>{% endif %}.</p>
+
       </footer>
     </div><!-- /.article-wrap -->
   {% if site.owner.disqus-shortname and page.comments == true %}
