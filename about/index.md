@@ -9,6 +9,10 @@ image:
   feature: atreus-keyboad-banner.jpg
 ---
 
-__Trial and error__ is my personal blog and a collection of what worked for me last
-time. I code in Ruby and JavaScript. The part of each day I lookforwad to is
-learning thet I dont know something and what I dont know and learning.
+__Trial and Error__ is a collection of code and patterns that have worked for me in the past. I create these posts and tutorials as a way to share my path with others as well as to find my own way back. The part of each day I look forward to the most is the part where I get to learn something new.  
+
+
+I am a __Ruby and Javascript dev__ in Los Angeles California. For the past couple of years I have been a volunteer coach at the annual [Rails Girls Los Angeles] event. I co-organize a [Meetup] in downtown LA which focuses on pair programming. It's open to all levels of experience, and is language agnostic.
+
+[Rails Girls Los Angeles]: http://railsgirls.com/la
+[Meetup]: http://www.meetup.com/eastsideJavascript/
