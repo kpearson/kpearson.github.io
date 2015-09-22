@@ -1,6 +1,6 @@
 ---
-layout: guide-index
-title: Quick Refrence Guides
+layout: tutorials-index
+title: Tutorials
 excerpt: "Developer notes. A collection of code that worked for me."
 ---
 

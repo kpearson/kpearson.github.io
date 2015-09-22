@@ -32,21 +32,7 @@
   <div id="index">
     <h1>{{ page.title }}</h1>
     {{ content }}
-    {% for category in site.data.guide_categories %}
-      <h3>{{ category }}</h3>
-    {% for guide in site.guides %}
-      {% if guide.category contains category %}
-      <article>
-        {% if guide.link %}
-          <h2 class="link-guide"><a href="{{ site.url }}{{ guide.url }}" title="{{ guide.title }}">{{ guide.title }}</a> <a href="{{ guide.link }}" target="_blank" title="{{ guide.title }}"><i class="fa fa-link"></i></a></h2>
-        {% else %}
-          <h2><a href="{{ site.url }}{{ guide.url }}" title="{{ guide.title }}">{{ guide.title }}</a></h2>
-          <p>{{ guide.excerpt | strip_html | truncate: 160 }}</p>
-        {% endif %}
-      </article>
-      {% endif %}
-    {% endfor %}
-    {% endfor %}
+    {% include _tutorials_list.html %}
   </div><!-- /#index -->
 </div><!-- /#main -->
 

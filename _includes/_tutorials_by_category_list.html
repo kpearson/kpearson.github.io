@@ -1,0 +1,15 @@
+    {% for category in site.data.guide_categories %}
+      <h3>{{ category }}</h3>
+      {% for tutorial in site.tutorials %}
+        {% if tutorial.category contains category %}
+        <article>
+          {% if tutorial.link %}
+            <h2 class="link-guide"><a href="{{ site.url }}{{ tutorial.url }}" title="{{ tutorial.title }}">{{ tutorial.title }}</a> <a href="{{ tutorial.link }}" target="_blank" title="{{ tutorial.title }}"><i class="fa fa-link"></i></a></h2>
+          {% else %}
+            <h2><a href="{{ site.url }}{{ tutorial.url }}" title="{{ tutorial.title }}">{{ tutorial.title }}</a></h2>
+            <p>{{ tutorial.excerpt | strip_html | truncate: 160 }}</p>
+          {% endif %}
+        </article>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}

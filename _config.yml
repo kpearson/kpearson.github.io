@@ -1,6 +1,6 @@
 # Site wide configuration
 
-title:  Trial & error
+title:  Trial & Error
 locale: en_US
 url:
 
@@ -31,7 +31,7 @@ kramdown:
   input: GFM
 
 collections:
-  guides:
+  tutorials:
     output: true
 
 # Default front matter
@@ -47,10 +47,10 @@ defaults:
   -
     scope:
       path: ""
-      type: "guides"
+      type: "tutorials"
     values:
       date: 2013-11-02 00:00:00 -0800
-      layout: "guide"
+      layout: "tutorials"
       comments: true
       tags: [kit pearson, web development, ruby, ruby on rails, javascript]
 
