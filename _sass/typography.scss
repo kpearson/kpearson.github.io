@@ -131,15 +131,15 @@ blockquote {
    ========================================================================== */
 
 p {
-	@include font(13);
-	margin: 0 0 $indent-var;
-	// sibling indentation
+  @include font(13);
+  margin: 0 0 1.5rem;
+  // sibling indentation
   @if $paragraph-indent == true {
     & + p {
-			text-indent: $indent-var;
-			margin-top: -($indent-var);
-		}
-	}
+      text-indent: $indent-var;
+      margin-top: -($indent-var);
+    }
+  }
 }
 
 /*
