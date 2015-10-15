@@ -42,7 +42,7 @@ A more complete list of the available [command line options] can be found by ent
 
 My next step is to add a few gems I know I'm going to use in the initial setup. I'll go over them in more detail later, as we put them to use. I also remove all the comments and organize the Gemfile a little.
 
-### Example Gemfile (Rspec)
+### Example Gemfile ([Rspec])
 
 ```ruby
 gem 'pry-rails'
@@ -55,9 +55,9 @@ group :test, :development do
 end
 ```
 
-### Example Gemfile (Minitest)
+### Example Gemfile ([Minitest])
 
-This is how I approach setting up [Minitest] in a Rails application.  This is specific to the `minitest-rails` gem. Rails comes with [Minitest] built in, however setting up an app to make use of [Minitest] without the the gem requires slightly different code.
+This is how I approach setting up [Minitest] in a Rails application.  This is specific to the `minitest-rails` gem. Rails comes with Minitest built in, however setting up an app to make use of Minitest without the the gem requires slightly different code.
 
 ```ruby
 # Gemfile
@@ -73,9 +73,7 @@ end
 
 >Note: The Minitest-rails gem is a dependency of `minitest-rails-capybara` so I don't need to list it in the `Gemfile`. If you prefer, you can include it to remind you that it's included.
 
-### Bundle
-
-With test framework chosen, and gems in place run `bin/bundle`
+Run `bin/bundle` with test framework chosen, and gems in place.
 
 ## Testing Framework Setup
 
@@ -119,7 +117,7 @@ class ActiveSupport::TestCase
 end
 ```
 
-### Unit testing
+### Unit Testing
 
 At this point we are all set up for unit testing. The test framework knows about itself and knows which directory to look in for test files. That will allow us to run the Rails generators and get the corresponding test files.
 

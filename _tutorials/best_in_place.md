@@ -5,7 +5,7 @@ excerpt: "A lightweight jQuary, AJAX inplace update form system."
 title: Best in Place Gem
 ---
 
-This is a quick break down of a simple install for the Ruby gem __Best in Place__
+This is a quick break down of a simple install for the Ruby gem __[Best in Place]__
 gem. I let the code snippets do most of the talking with the help of some
 commtents indecating the relevent change.
 
@@ -124,3 +124,4 @@ the ajax call.
 ```
 
 [demoapp]: https://github.com/kpearson/shop-a-bot/tree/best_in_place/
+[Best in Place]: https://github.com/bernat/best_in_place

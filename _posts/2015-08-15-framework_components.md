@@ -2,17 +2,17 @@
 title: Framework Components
 ---
 
-We are fortunate to be building apps in a time of relatively mature, battle tested frameworks. While amazingly powerful and easy to use, the building blocks that make up these frameworks become increasingly difficult to reason about as an apps complexity grows. __One of the key skills to building software within a framework is understanding the role of its components and how they interact__. Here are a few of my go-to tools and techniques for looking at the components of a Ruby on Rails app on their own, with as few dependencies as possible.
+We are fortunate to be building apps in a time of relatively mature, battle tested frameworks. While amazingly powerful and easy to use, the building blocks that make up these frameworks become increasingly difficult to reason about as an app's complexity grows. __One of the key skills to building software within a framework is understanding the role of its components and how they interact__. Here are a few of my go-to tools and techniques for looking at the components of a Ruby on Rails app on their own, with as few dependencies as possible.
 
 ## Dealing with Dependencies
 When lighting up the individual components of a framework one of the biggest things we can learn is what its dependencies are, i.e., what libraries it relies on to function. At the same time, we also can understand what parts of the framework are not necessary. __It can be very nice to know when it's possible not to require the entire stack and just make available the necessary code.__
 
 ## Practical Example
-In the case of the Ruby on Rails ecosystem, the libraries that make up Rails engines and Ruby gems used in a Rails application are called components. A rails engine is like a mini Rails app, with models, views and controllers, rake tasks, etc. Component dependencies are defined in a `.gemspec` file. The test suite will test it in isolation and confirm its dependency structure.
+In the case of the Ruby on Rails ecosystem, the libraries that make up Rails engines and Ruby gems used in a Rails application are called components. A Rails engine is like a mini Rails app, with models, views and controllers, rake tasks, etc. Component dependencies are defined in a `.gemspec` file. The test suite will test it in isolation and confirm its dependency structure.
 
-Lets look at consuming a third party API with the Hurley gem. For our purposes the Github API makes for a very clean example. It follows the REST pattern so URLs return what we would expect.
+Let's look at consuming a third party API with the Hurley gem. For our purposes the Github API makes for a very clean example. It follows the REST pattern so URLs return what we would expect.
 
-For those of you following along, before we move on, we are going to need to take care of a few things. First, Github requires us to have an [access token](github_api_docs) to make requests of its API. Next, we need a couple gems. The Hurley gem so we can explore the API, and Pry, my tool of choice for looking at what's happening inside a Ruby method. Because we are not going to be using a gem file they will need to installed manually.
+For those of you following along, before we move on, we are going to need to take care of a few things. First, Github requires us to have an [access token](github_api_docs) to make requests of its API. Next, we need a couple gems. The [Hurley] gem so we can explore the API, and Pry, my tool of choice for looking at what's happening inside a Ruby method. Because we are not going to be using a gem file they will need to installed manually.
 
 From the terminal run:
 
@@ -82,11 +82,11 @@ binding.pry      # <-------------------
 puts response
 ```
 
->Note: When using Pry, the `binding.pry` statement can not be the last thing evaluated. So to get around this in the example above I added a `puts` so the `binding.pry` would do what we expect.
+>When using [Pry], the `binding.pry` statement can not be the last thing evaluated. So to get around this in the example above I added a `puts` so the `binding.pry` would do what we expect.
 
 Assigning the request response to a variable and placing the Pry statement after the `get` block is executed lets us play with what is returned and find out how to extract the data we need.
 
-If the Github API wasn't responding as expected, we could place the `binding.pry` before or inside the `get` request block and build up the request by hand. This gives us a chance to make sure we we're providing all the params Github needs.
+If the Github API wasn't responding as expected, we could place the `binding.pry` before or inside the `get` request block and build up the request by hand. This gives us a chance to make sure we're providing all the params Github needs.
 
 The important thing here is rapid experimentation. By eliminating all but the essential pieces, we can quickly reason about the gem's behavior without wondering how other libraries may be affecting the outcome.
 
@@ -102,3 +102,5 @@ Learning to understand the components of our applications outside of their conte
 
 [github_api_docs]: https://help.github.com/articles/creating-an-access-token-for-command-line-use/
 [dotenv]: https://github.com/bkeepers/dotenv
+[Pry]: http://pryrepl.org/
+[Hurley]: https://github.com/lostisland/hurley
