@@ -195,13 +195,13 @@ Here is the [example Minitest] implementation on Github.
 
 Minitest integration tests live in `test/integration`. This folder is automatically created with `rails new ...` when you don't include the `-T` option.
 
-### Launchy
+### [Launchy]
 
-When using either Minitest or Rspec the __Launchy gem__ is something I always use in conjunction with Capybara. It is not required for Capybara to run, but it is very useful for debugging. To learn more about why it's to useful do a search for [save_and_open_page](http://www.google.com/search?q=save_and_open_page){:target="_blank"}
+When using either Minitest or Rspec the __[Launchy] gem__ is something I always use in conjunction with Capybara. It is not required for Capybara to run, but it is very useful for debugging. To learn more about why it's to useful do a search for [save_and_open_page](http://www.google.com/search?q=save_and_open_page){:target="_blank"}
 
-## Database Cleaner
+## [Database Cleaner]
 
-I use the Database_cleaner gem to help maintain a clean database after each test:
+I use the [Database Cleaner] gem to help maintain a clean database after each test:
 
 Add a file to `spec/support/database_cleaner.rb`
 
@@ -270,7 +270,7 @@ end
 
 ## Wrapping up
 
-I try to keep this article updated, to reflect my current Rails application set-up. I'd love to know what you think and what you use.
+I work to keep this article updated, to reflect my current Rails application set-up. I'd love to know what you think and what you use.
 
 Was this article helpful to to you? If you got stuck on any piece or have a question, leave a comment down below.
 
@@ -316,6 +316,8 @@ And, hey!  Keep it kind.  As much as I value and respect opinions, I will remove
 [Capybara]: https://github.com/jnicklas/capybara
 [pry]: http://pryrepl.org/
 [pry-rails]: https://github.com/rweng/pry-rails
+[Launchy]: https://github.com/copiousfreetime/launchy
+[Database Cleaner]: https://github.com/DatabaseCleaner/database_cleaner
 [command line options]: https://github.com/guard/guard/wiki/Command-line-options-for-Guard
 
 [companion code base]: https://github.com/kpearson/shop-a-bot
