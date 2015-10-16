@@ -1,3 +1,7 @@
+$(document.links).filter(function() {
+    return this.hostname != window.location.hostname;
+}).attr('target', '_blank');
+
 /*! Responsive Menu */
 // http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/
 //  The function to change the class

@@ -197,7 +197,7 @@ Minitest integration tests live in `test/integration`. This folder is automatica
 
 ### Launchy
 
-When using either Minitest or Rspec the __Launchy gem__ is something I always use in conjunction with Capybara. It is not required for Capybara to run, but it is very useful for debugging. To learn more about why it's to useful do a search for [`save_and_open_page`].
+When using either Minitest or Rspec the __Launchy gem__ is something I always use in conjunction with Capybara. It is not required for Capybara to run, but it is very useful for debugging. To learn more about why it's to useful do a search for [save_and_open_page](http://www.google.com/search?q=save_and_open_page){:target="_blank"}
 
 ## Database Cleaner
 
@@ -287,7 +287,8 @@ And, hey!  Keep it kind.  As much as I value and respect opinions, I will remove
 [pry]: http://pryrepl.org/
 [pry-rails]: https://github.com/rweng/pry-rails
 [command line options]: https://github.com/guard/guard/wiki/Command-line-options-for-Guard
-[save_and_open_page]: http://www.google.com/search?q=save_and_open_page
+[Minitest-Reporters]: https://github.com/kern/minitest-reporters
+[`save_and_open_page`]:http://www.google.com/search?q=save_and_open_page{:target="_blank"}
 
 [companion code base]: https://github.com/kpearson/shop-a-bot
 [example Minitest]: https://github.com/kpearson/shop-a-bot/commit/6eba263d985280f7ef1874515f02dc495cb5e5b8
@@ -316,7 +317,6 @@ And, hey!  Keep it kind.  As much as I value and respect opinions, I will remove
 [pry]: http://pryrepl.org/
 [pry-rails]: https://github.com/rweng/pry-rails
 [command line options]: https://github.com/guard/guard/wiki/Command-line-options-for-Guard
-[save_and_open_page]: http://www.google.com/search?q=save_and_open_page
 
 [companion code base]: https://github.com/kpearson/shop-a-bot
 [example Minitest]: https://github.com/kpearson/shop-a-bot/commit/6eba263d985280f7ef1874515f02dc495cb5e5b8
