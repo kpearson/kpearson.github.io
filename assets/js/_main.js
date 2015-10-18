@@ -1,7 +1,3 @@
-$(document.links).filter(function() {
-    return this.hostname != window.location.hostname;
-}).attr('target', '_blank');
-
 /*! Responsive Menu */
 // http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/
 //  The function to change the class
@@ -9,12 +5,13 @@ var changeClass = function (r,className1,className2) {
   var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
   if( regex.test(r.className) ) {
     r.className = r.className.replace(regex,' '+className2+' ');
-    }
-    else{
+  }
+  else{
     r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
-    }
-    return r.className;
+  }
+  return r.className;
 };
+
 //  Creating our button in JS for smaller screens
 var menuElements = document.getElementById('site-nav');
 menuElements.insertAdjacentHTML('afterBegin','<button type="button" role="button" id="menutoggle" class="navtoogle navicon-lines-button x" aria-hidden="true"><span class="navicon-lines"></span>menu</button>');
@@ -26,7 +23,7 @@ document.getElementById('menutoggle').onclick = function() {
 // http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918
 document.onclick = function(e) {
   var mobileButton = document.getElementById('menutoggle'),
-    buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
+      buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
 
   if(buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
     changeClass(mobileButton, 'navtoogle active', 'navtoogle');
@@ -37,7 +34,7 @@ document.onclick = function(e) {
 
 // FitVids options
 $(function() {
-	$("article").fitVids();
+  $("article").fitVids();
 });
 
 // Table of Contents toggle
@@ -57,8 +54,8 @@ $(document).ready(function() {
     tLoading: 'Loading image #%curr%...',
     gallery: {
       enabled: true,
-      navigateByImgClick: true,
-      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+    navigateByImgClick: true,
+    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
     },
     image: {
       tError: '<a href="%url%">Image #%curr%</a> could not be loaded.',
@@ -72,9 +69,13 @@ $(document).ready(function() {
 
 // Add style to the site title
 $(function() {
-  console.log( "hello" )
-   var words = $('.site-name a').text().split( /\s+/ )
-   var text = words.join( "</span> <span>" )
-   $('.site-name a').html("<span>" + text + "</span>" )
-   $( "span" ).first().css( 'color', 'red' )
+  var words = $('.site-name a').text().split( /\s+/ )
+  var text = words.join("</span> <span>")
+  $('.site-name a').html("<span>" + text + "</span>")
+  $("span").first().css('color', 'black')
 });
+
+// Add target blank to all out-bound links
+$(document.links).filter(function() {
+  return this.hostname != window.location.hostname;
+}).attr('target', '_blank');
