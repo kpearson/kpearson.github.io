@@ -9,7 +9,13 @@ url:
 permalink: /:categories/:title/
 markdown: redcarpet
 redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+  extensions: [
+    "no_intra_emphasis",
+    "fenced_code_blocks",
+    "autolink",
+    "tables",
+    "with_toc_data"
+  ]
 highlighter: pygments
 fenced_code_blocks: pygments
 sass:
@@ -22,13 +28,13 @@ lsi: false
 excerpt_separator: ""
 encoding: "utf-8"
 
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  use_coderay: false
-  input: GFM
+# kramdown:
+#   auto_ids: true
+#   footnote_nr: 1
+#   entity_output: as_char
+#   toc_levels: 1..6
+#   use_coderay: false
+#   input: GFM
 
 collections:
   tutorials:
