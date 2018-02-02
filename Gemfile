@@ -5,3 +5,4 @@ gem "jekyll-sitemap"
 gem 'redcarpet'
 gem "github-pages"
 gem 'octopress', '~> 3.0.0.rc.12'
+gem 'pygments.rb'
